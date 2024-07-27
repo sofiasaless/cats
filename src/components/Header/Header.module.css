@@ -1,0 +1,30 @@
+.header {
+    background-color: var(--blue);
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 8px;
+}
+
+.header a:hover {
+    border-bottom: 2px solid white;
+}
+
+.about {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.about:hover {
+    background-color: var(--white);
+    border-radius: 4px;
+    color: var(--blue);
+}
