@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Visualizer from "./pages/VIsualizer";
+import Visualizer from "./pages/Visualizer";
 
 export default function AppRoutes () {
     return (
