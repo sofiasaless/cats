@@ -1,0 +1,93 @@
+.content {
+    height: 100vh;
+}
+
+.content h2 {
+    font-family: var(--title);
+    color: var(--blue);
+    padding: 15px;
+    text-align: center;
+}
+
+.content p {
+    text-align: center;
+    color: rgb(239, 50, 50);
+    background-color: var(--white);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.table {
+    background-color: white;
+    height: auto;
+    margin: auto;
+    width: 700px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.table table {
+    margin-top: 15px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table table, th, td {
+    border: 2px solid white;
+}
+
+.table th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--blue);
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table button {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--others);
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.columns {
+    text-transform: uppercase;
+}
+
+.table tr, button {
+    text-align: center;
+}
+
+.logo_visu {
+    text-align: center;
+    width: 300px;
+}
+
+.logo_visu img {
+    width: 60%;
+}
