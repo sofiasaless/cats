@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 export default function Header () {
     return (
         <header className={styles.header}>
             <nav>
-                <a href="">Início</a>
-                <a href="">Cadastrar</a>
-                <a href="">Visualizar</a>
+                <Link to="/">Início</Link>
+                <Link to="/cadastrar">Cadastrar</Link>
+                <Link to="/visualizar">Visualizar</Link>
             </nav>
             <div>
-                <a href="" className={styles.about}>Sobre</a>
+                <Link to="" className={styles.about}>Sobre</Link>
             </div>
         </header>
     );
