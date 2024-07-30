@@ -1,3 +1,16 @@
+@media screen and (max-width: 950px) {
+    .content .table {
+        width: auto;
+        margin-left: 5%;
+        margin-right: 5%;    
+    }
+
+    .content .table table {
+        margin: 10px;
+    }
+
+}
+
 .content {
     height: 100vh;
 }

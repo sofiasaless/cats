@@ -17,9 +17,7 @@ export default function Home () {
 
                         <div className={styles.image_content}>
                             <img src={gtx_logo} alt="Logo inicial dos Gatuxos" />
-                            <div className={styles.shadow}>
-
-                            </div>
+                            <div className={styles.shadow}></div>
                         </div>
                     </section>
                 }

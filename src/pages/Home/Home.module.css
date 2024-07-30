@@ -3,18 +3,37 @@
         padding-top: 80px;
         display: flex;
         flex-direction: column;
-    }    
+    }
 
-    .texts {
-        text-align: center;
+    .section .texts {
         margin: 0;
+        margin-bottom: 40px;
     }
 
-    .texts h1 {
-        max-width: 100px;
-        font-size: 60px;
+    .section .texts h1 {
+        max-width: 500px;
+        font-size: 90px;
+        color: var(--blue);
+        text-align: center;
+        width: 100%;
+        margin: auto;
     }
 
+    .section .texts p {
+        text-align: center;
+    }
+
+    .section .image_content {
+        width: auto;
+        max-width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .section .texts h1 {
+        font-size: 80px;
+    }
 }
 
 .texts {
