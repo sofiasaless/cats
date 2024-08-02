@@ -9,8 +9,10 @@ export default function Visualizer () {
 
             <Container>
                 {
-                    <VisualizerTable/>
+                    <VisualizerTable />
                 }
+
+                {/* <button onClick={getCats}>aperta aqui pra testa essa porra</button> */}
             </Container>
         </>
     );
