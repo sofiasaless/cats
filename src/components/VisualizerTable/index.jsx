@@ -37,7 +37,7 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
                                     <td>{cat.name}</td>
                                     <td>{cat.age}</td>
                                     <td>{cat.gender}</td>
-                                    <button><img src={trashImg} /></button>
+                                    <button onClick={() => deleteCat(cat.id)}><img src={trashImg} /></button>
                                     <button><img src={pencilImg} /></button>
                                 </tr>
                             ))
@@ -46,30 +46,6 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
 
                 </table>
 
-            </div>
-
-            {/* form de atualização do gato na api */}
-            <div className={styles.editform}>
-                <div>
-                    <span>&times;</span>
-                    <h3>Atualize as informações do Gatuxo</h3>
-                    <form>
-                        <label htmlFor="name">Nome:</label>
-                        <input type="text" id='name' required />
-
-                        <label htmlFor="age">Idade:</label>
-                        <input type="number" min={0} max={20} id='age' />
-
-                        <label htmlFor="gender">Gênero:</label>
-                        <select name="gender" id="gender">
-                            <option value="Macho">Macho</option>
-                            <option value="Femea">Fêmea</option>
-                        </select>
-
-                        <button>Atualizar</button>
-
-                    </form>
-                </div>
             </div>
 
         </section>
