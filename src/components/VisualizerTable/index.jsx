@@ -1,24 +1,9 @@
 import styles from './VisualizerTable.module.css';
 import gtx_visu from "../../../public/images/logo-list.png";
-import axios from 'axios';
-import { useState, useEffect } from 'react';
 import trashImg from "../../../public/images/trash-fill.svg";
 import pencilImg from "../../../public/images/pencil-square.svg";
 
-export default function VisualizerTable () {
-    const [catsData, setCatsData] = useState([]);
-
-    useEffect(() => {
-        axios.get('https://cats-api-phsr.onrender.com/cats')
-        .then((response) => {
-            setCatsData(response.data);
-            document.getElementById('content').style.marginTop = '90px';
-            document.getElementById('warn').style.display = 'none';
-        })
-        .catch((error) => {
-            console.log('Error durante recuperação dos gatuxos: ' + error);
-        });
-    }, []);
+export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
 
     return (
         <section className={styles.content} id='content'>
@@ -30,7 +15,7 @@ export default function VisualizerTable () {
 
                 <h2>Lista de <strong>gatuxos</strong> cadastrados</h2>
 
-                <p className={styles.warn} id='warn'>
+                <p className={styles.warn} id='warn' style={{display: requestStatus?'none':'block'}}>
                     A requisição pode levar alguns minutos para carregar, mas não se preocupe, os Gatuxos vão aparecer!
                 </p>
 
@@ -46,15 +31,17 @@ export default function VisualizerTable () {
                     </thead>
 
                     <tbody id='cats-table-response'>
-                    {catsData.map(cat => (
-                        <tr key={cat.id}>
-                            <td>{cat.name}</td>
-                            <td>{cat.age}</td>
-                            <td>{cat.gender}</td>
-                            <button onClick=''><img src={trashImg} /></button>
-                            <button onClick=''><img src={pencilImg} /></button>
-                        </tr>
-                    ))}
+                        {
+                            data.map((cat) => (
+                                <tr key={cat.id}>
+                                    <td>{cat.name}</td>
+                                    <td>{cat.age}</td>
+                                    <td>{cat.gender}</td>
+                                    <button><img src={trashImg} /></button>
+                                    <button><img src={pencilImg} /></button>
+                                </tr>
+                            ))
+                        }
                     </tbody>
 
                 </table>
