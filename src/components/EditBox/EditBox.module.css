@@ -1,0 +1,96 @@
+@media screen and (max-width: 950px) {
+    .container_update .editform {
+        margin: 50% auto;
+        min-width: 300px;
+    }
+}
+
+.container_update {
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container_update .editform {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 55%;
+    max-width: 500px;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container_update .editform h3 {
+    text-align: center;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin: 10px;
+    margin-top: 25px;
+}
+
+.container_update .editform form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.container_update .editform span {
+    cursor: pointer;
+    font-size: 25px;
+    color: gray;
+    float: left;
+}
+
+.container_update .editform span:hover {
+    color: black;
+}
+
+.container_update .editform label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.container_update .editform input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.container_update .editform select {
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.container_update .editform button {
+    background-color: white;
+    border: 2px solid #062a75;
+    color: #062a75;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;    
+    font-family: var(--others);
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    border-radius: 5px;
+}
+
+.container_update .editform button:hover {
+    background-color: #062a75;
+    color: white;
+    transition: ease;
+}

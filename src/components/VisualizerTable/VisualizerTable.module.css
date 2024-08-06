@@ -1,4 +1,8 @@
 @media screen and (max-width: 950px) {
+    .content {
+        margin: 0px;
+    }
+    
     .content .table {
         width: auto;
         margin-left: 5%;
@@ -26,8 +30,8 @@
     text-align: center;
     color: rgb(239, 50, 50);
     background-color: var(--white);
-    padding: 5px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 7px;
 }
 
 .table {
@@ -103,4 +107,10 @@
 
 .logo_visu img {
     width: 60%;
+}
+
+/* edit form for cats */
+
+.content .editform {
+    display: none;
 }
