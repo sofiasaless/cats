@@ -5,7 +5,7 @@ export default function MessageBox( { message, excludeState, closeComponent, act
         <>
             <div className={styles.content}>
                 <div className={styles.intern_content}>
-                    <span>{message}</span>
+                    <h4>{message}</h4>
 
                     <div className={styles.control_btns}>
                         {/* <button className={styles.ok_btn} onClick={() => {

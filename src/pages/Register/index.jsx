@@ -33,6 +33,7 @@ export default function Register () {
         .then(response => {
             setShowBox(true)
             setBoxMessage("Gatuxo cadastrado com sucesso!")
+            clearFields();
             // alert('Gatuxo cadastrado com sucesso!');
         })
         .catch((error) => {
@@ -42,6 +43,10 @@ export default function Register () {
         });
     }
 
+    const clearFields = () => {
+        setName('');
+        setAge('');
+    }
     
     return (
         <>
@@ -57,10 +62,10 @@ export default function Register () {
                         </div>
                         <h2>Preencha os campos</h2>
                         <label htmlFor="name">Nome do gatinho:</label>
-                        <input type="text" maxLength={20} name='name' onChange={(e) => setName(e.target.value)} />
+                        <input type="text" maxLength={20} name='name' value={name} onChange={(e) => setName(e.target.value)} />
 
                         <label htmlFor="age">Idade do gatinho:</label>
-                        <input type="number"min={0} maxLength={20} name='age' onChange={(e) => setAge(e.target.value)} />
+                        <input type="number"min={0} maxLength={20} name='age' value={age} onChange={(e) => setAge(e.target.value)} />
 
                         <label htmlFor="gender">Gênero:</label>
                         <select name="gender" id="gender" onChange={(e) => setGender(e.target.value)}>

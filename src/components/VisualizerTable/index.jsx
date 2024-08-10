@@ -6,7 +6,7 @@ import EditBox from '../EditBox';
 import { useState } from 'react';
 import MessageBox from '../MessageBox';
 
-export default function VisualizerTable ( { data, requestStatus, deleteCat, updateMethod } ) {
+export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
 
     const [selectedCat, setSelectedCat] = useState(null);
     
@@ -73,7 +73,7 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat, upda
 
                 </table>
 
-                {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} updates={updateMethod} />}
+                {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} />}
 
                 {showBox && <MessageBox message={boxMessage} excludeState={excludeCat} closeComponent={closeMessageBox} action={()=>deleteCat(excludeCat)}/>}
 

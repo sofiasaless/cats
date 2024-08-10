@@ -34,18 +34,6 @@ export default function Visualizer () {
         .catch()
     }
 
-    // updating cats
-    const upCat = (catToBeUpdated) => {
-
-        axios.put('https://cats-api-phsr.onrender.com/cats/update', catToBeUpdated)
-        .then((resp) => {
-            // inserts confirmation messageBox after the axios confirmation 
-        })
-        .catch((error) => {
-            // inserts some alert message on messageBox after the axios catch 
-        })
-    }
-
     
     return (
         <>
@@ -53,7 +41,7 @@ export default function Visualizer () {
             <Container>
                 {
                     <div>
-                        <VisualizerTable data={catsData} requestStatus={requestStatus} deleteCat={deletingCat} updateMethod={upCat}/>
+                        <VisualizerTable data={catsData} requestStatus={requestStatus} deleteCat={deletingCat} />
                     </div>
                 }
             </Container>

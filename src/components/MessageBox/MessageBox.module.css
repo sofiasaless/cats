@@ -15,8 +15,8 @@
     padding: 10px;
     /* border: 1px solid red; */
     width: 100%;
-    max-width: 300px;
-    min-width: 280px;
+    max-width: 250px;
+    min-width: 230px;
     border-radius: 8px;
 
     display: flex;
@@ -24,7 +24,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
 }
 
-.content .intern_content span {
+.content .intern_content h4 {
     text-align: center;
     padding: 10px;
     color: white;
