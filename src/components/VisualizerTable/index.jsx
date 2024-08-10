@@ -5,16 +5,16 @@ import pencilImg from "../../../public/images/pencil-square.svg";
 import EditBox from '../EditBox';
 import { useState } from 'react';
 
-export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
+export default function VisualizerTable ( { data, requestStatus, deleteCat, updateMethod } ) {
 
-    const [selectedCat, setSelectedCat] = useState(null); // Estado para armazenar o gato selecionado
+    const [selectedCat, setSelectedCat] = useState(null);
 
-    const showEditForm = (cat, id) => {
-        setSelectedCat(cat); // Define o gato a ser editado
+    const showEditForm = (cat) => {
+        setSelectedCat(cat);
     };
 
     const closeEditForm = () => {
-        setSelectedCat(null); // Fecha o formulário de edição
+        setSelectedCat(null);
     };
 
     return (
@@ -58,7 +58,6 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
 
                 </table>
 
-                {/* Renderiza o EditBox se um gato estiver selecionado */}
                 {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} updates={updateMethod} />}
 
             </div>

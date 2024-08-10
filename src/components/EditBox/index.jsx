@@ -20,7 +20,11 @@ export default function EditBox ( { cat, closeComponent, updates } ) {
                     <div>
                         <span onClick={closeComponent}>&times;</span>
                         <h3>Atualize as informações do Gatuxo</h3>
-                        <form>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            updates(upCat);
+                            closeComponent();
+                        }}>
                             <label htmlFor="name">Nome:</label>
                             <input type="text" id='name' required defaultValue={cat.name} onChange={(e) => setName(e.target.value)}  />
 
@@ -33,7 +37,7 @@ export default function EditBox ( { cat, closeComponent, updates } ) {
                                 <option value="Femea">Fêmea</option>
                             </select>
 
-                            <button onClick={() => updates(upCat)}>Atualizar</button>
+                            <button type='submit'>Atualizar</button>
                         </form>
                     </div>
             </div>
