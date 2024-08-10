@@ -25,11 +25,14 @@
 
 .header a:hover {
     border-bottom: 3px solid var(--blue);
+    transition:40ms;
 }
 
 .about {
     font-weight: bolder;
     padding: 15px;
+    border-radius: 7px;
+    transition: background 0.5s ease;
 }
 
 .about:hover {
