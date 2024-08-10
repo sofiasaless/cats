@@ -3,6 +3,7 @@ import gtx_reg from '../../../public/images/logo-register.png';
 
 import Header from '../../components/Header';
 import Container from '../../components/Container';
+import MessageBox from '../../components/MessageBox';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -11,6 +12,13 @@ export default function Register () {
     const [ name, setName ] = useState(''); 
     const [ age, setAge ] = useState(''); 
     const [ gender, setGender ] = useState('Macho'); 
+
+    const [ showBox, setShowBox ] = useState(null);
+    const [ boxMessage, setBoxMessage ] = useState('');
+
+    const closeMessageBox = () => {
+        setShowBox(null);
+    };
 
     function cadastre (e) {
         e.preventDefault();
@@ -23,13 +31,22 @@ export default function Register () {
 
         axios.post('https://cats-api-phsr.onrender.com/cats/save', cat)
         .then(response => {
-            alert('Gatuxo cadastrado com sucesso!');
+            setShowBox(true)
+            setBoxMessage("Gatuxo cadastrado com sucesso!")
+            clearFields();
+            // alert('Gatuxo cadastrado com sucesso!');
         })
         .catch((error) => {
+            setShowBox(true)
+            setBoxMessage("Ocorreu um erro ao cadastrar o gatuxo :(")
             console.log('Ocorreu um erro: ' + error);
         });
     }
 
+    const clearFields = () => {
+        setName('');
+        setAge('');
+    }
     
     return (
         <>
@@ -37,6 +54,7 @@ export default function Register () {
            <Container>
 
             {
+                <>
                 <section className={styles.content}>
                     <form onSubmit={cadastre}>
                         <div>
@@ -44,10 +62,10 @@ export default function Register () {
                         </div>
                         <h2>Preencha os campos</h2>
                         <label htmlFor="name">Nome do gatinho:</label>
-                        <input type="text" maxLength={20} name='name' onChange={(e) => setName(e.target.value)} />
+                        <input type="text" maxLength={20} name='name' value={name} onChange={(e) => setName(e.target.value)} />
 
                         <label htmlFor="age">Idade do gatinho:</label>
-                        <input type="number"min={0} maxLength={20} name='age' onChange={(e) => setAge(e.target.value)} />
+                        <input type="number"min={0} maxLength={20} name='age' value={age} onChange={(e) => setAge(e.target.value)} />
 
                         <label htmlFor="gender">Gênero:</label>
                         <select name="gender" id="gender" onChange={(e) => setGender(e.target.value)}>
@@ -58,6 +76,11 @@ export default function Register () {
                         <button type='submit'>Cadastrar gatinho</button>
                     </form>
                 </section>
+
+                <div>
+                    {showBox && <MessageBox message={boxMessage} excludeConfirmation={false} closeComponent={closeMessageBox} action={null}/>}
+                </div>
+                </>
             }
            
            </Container>

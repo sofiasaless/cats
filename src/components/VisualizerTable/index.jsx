@@ -4,17 +4,27 @@ import trashImg from "../../../public/images/trash-fill.svg";
 import pencilImg from "../../../public/images/pencil-square.svg";
 import EditBox from '../EditBox';
 import { useState } from 'react';
+import MessageBox from '../MessageBox';
 
-export default function VisualizerTable ( { data, requestStatus, deleteCat, updateMethod } ) {
+export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
 
     const [selectedCat, setSelectedCat] = useState(null);
-
+    
     const showEditForm = (cat) => {
         setSelectedCat(cat);
     };
-
+    
     const closeEditForm = () => {
         setSelectedCat(null);
+    };
+
+    // for excluding cat
+    const [ excludeCat, setExcludeCat ] = useState();
+    const [ showBox, setShowBox ] = useState(null);
+    const [ boxMessage, setBoxMessage ] = useState('');
+
+    const closeMessageBox = () => {
+        setShowBox(null);
     };
 
     return (
@@ -49,7 +59,12 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat, upda
                                     <td>{cat.name}</td>
                                     <td>{cat.age}</td>
                                     <td>{cat.gender}</td>
-                                    <button onClick={() => deleteCat(cat.id)}><img src={trashImg} /></button>
+                                    <button onClick={() => {
+                                        setExcludeCat(cat.id)
+                                        setShowBox(true)
+                                        setBoxMessage("Tem certeza que quer excluir o gatuxo?");
+                                        // deleteCat(cat.id)
+                                    }}><img src={trashImg} /></button>
                                     <button onClick={() => showEditForm(cat)}><img src={pencilImg} /></button>
                                 </tr>
                             ))
@@ -58,7 +73,9 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat, upda
 
                 </table>
 
-                {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} updates={updateMethod} />}
+                {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} />}
+
+                {showBox && <MessageBox message={boxMessage} excludeState={excludeCat} closeComponent={closeMessageBox} action={()=>deleteCat(excludeCat)}/>}
 
             </div>
 

@@ -27,24 +27,11 @@ export default function Visualizer () {
         // inserts confirmation messageBox before the axios 
         // .....
 
-
         axios.delete(`https://cats-api-phsr.onrender.com/cats/${e}`)
         .then((catDeleted) => {
             console.log(catDeleted.status);
         })
         .catch()
-    }
-
-    // updating cats
-    const upCat = (catToBeUpdated) => {
-
-        axios.put('https://cats-api-phsr.onrender.com/cats/update', catToBeUpdated)
-        .then((resp) => {
-            // inserts confirmation messageBox after the axios confirmation 
-        })
-        .catch((error) => {
-            // inserts some alert message on messageBox after the axios catch 
-        })
     }
 
     
@@ -54,7 +41,7 @@ export default function Visualizer () {
             <Container>
                 {
                     <div>
-                        <VisualizerTable data={catsData} requestStatus={requestStatus} deleteCat={deletingCat} updateMethod={upCat}/>
+                        <VisualizerTable data={catsData} requestStatus={requestStatus} deleteCat={deletingCat} />
                     </div>
                 }
             </Container>

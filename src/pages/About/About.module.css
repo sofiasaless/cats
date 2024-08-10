@@ -1,0 +1,56 @@
+.section {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    padding: 30px;
+    height: auto;
+    width: 800px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.444);
+}
+
+.section div {
+    text-align: center;
+}
+
+.section div h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.section div i {
+    font-size: 70px;
+}
+
+.section div p {
+    text-align: justify;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.section div span {
+    font-weight: 500;
+    text-align: justify;
+    font-size: 17px;
+}
+
+.section div span a {
+    color: white;
+}
+
+.section .break {
+    background: rgba(255, 255, 255, 0.729);
+    height: 2px;
+    margin: 15px 0px 15px 0px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+@media screen and (max-width: 950px) {
+    .section {
+        margin: auto 5% auto 5%;
+        margin-top: 10%;
+    }
+}

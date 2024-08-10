@@ -10,7 +10,7 @@ export default function Header () {
                 <Link to="/visualizar">Visualizar</Link>
             </nav>
             <div>
-                <Link to="" className={styles.about}>Sobre</Link>
+                <Link to="/sobre" className={styles.about}>Sobre</Link>
             </div>
         </header>
     );
