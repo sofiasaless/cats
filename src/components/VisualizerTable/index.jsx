@@ -2,8 +2,20 @@ import styles from './VisualizerTable.module.css';
 import gtx_visu from "../../../public/images/logo-list.png";
 import trashImg from "../../../public/images/trash-fill.svg";
 import pencilImg from "../../../public/images/pencil-square.svg";
+import EditBox from '../EditBox';
+import { useState } from 'react';
 
-export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
+export default function VisualizerTable ( { data, requestStatus, deleteCat, updateMethod } ) {
+
+    const [selectedCat, setSelectedCat] = useState(null);
+
+    const showEditForm = (cat) => {
+        setSelectedCat(cat);
+    };
+
+    const closeEditForm = () => {
+        setSelectedCat(null);
+    };
 
     return (
         <section className={styles.content} id='content'>
@@ -38,13 +50,15 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
                                     <td>{cat.age}</td>
                                     <td>{cat.gender}</td>
                                     <button onClick={() => deleteCat(cat.id)}><img src={trashImg} /></button>
-                                    <button><img src={pencilImg} /></button>
+                                    <button onClick={() => showEditForm(cat)}><img src={pencilImg} /></button>
                                 </tr>
                             ))
                         }
                     </tbody>
 
                 </table>
+
+                {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} updates={updateMethod} />}
 
             </div>
 
