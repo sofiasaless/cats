@@ -27,7 +27,6 @@ export default function Visualizer () {
         // inserts confirmation messageBox before the axios 
         // .....
 
-
         axios.delete(`https://cats-api-phsr.onrender.com/cats/${e}`)
         .then((catDeleted) => {
             console.log(catDeleted.status);

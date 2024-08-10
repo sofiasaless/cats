@@ -46,3 +46,10 @@
     border-color: white;
     color: var(--blue);
 }
+
+.content .intern_content .control_btns .cancel_btn {
+    background-color: var(--blue);
+    border: 2px solid white;
+    color: white;
+    font-weight: 700;
+}

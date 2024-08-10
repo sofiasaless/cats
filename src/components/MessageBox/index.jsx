@@ -1,6 +1,6 @@
 import styles from './MessageBox.module.css';
 
-export default function MessageBox( { message, excludeConfirmation, closeComponent } ) {
+export default function MessageBox( { message, excludeState, closeComponent, action } ) {
     return (
         <>
             <div className={styles.content}>
@@ -8,13 +8,22 @@ export default function MessageBox( { message, excludeConfirmation, closeCompone
                     <span>{message}</span>
 
                     <div className={styles.control_btns}>
-                        <button className={styles.ok_btn} onClick={closeComponent}>OK</button>
+                        {/* <button className={styles.ok_btn} onClick={() => {
+                            action()
+                            closeComponent()
+                        }}>OK</button> */}
                         {
-                            excludeConfirmation
+                            excludeState
                             ?
-                            <button className={styles.cancel_btn} onClick={closeComponent}>Cancelar</button>
+                            <>
+                                <button className={styles.ok_btn} onClick={() => {
+                                action()
+                                closeComponent()
+                                }}>OK</button>
+                                <button className={styles.cancel_btn} onClick={closeComponent}>Cancelar</button>
+                            </>
                             :
-                            ""
+                            <button className={styles.ok_btn} onClick={closeComponent}>OK</button>
                         }
                     </div>
                 </div>

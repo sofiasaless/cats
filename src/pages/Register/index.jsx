@@ -73,7 +73,7 @@ export default function Register () {
                 </section>
 
                 <div>
-                    {showBox && <MessageBox message={boxMessage} excludeConfirmation={false} closeComponent={closeMessageBox}/>}
+                    {showBox && <MessageBox message={boxMessage} excludeConfirmation={false} closeComponent={closeMessageBox} action={null}/>}
                 </div>
                 </>
             }
