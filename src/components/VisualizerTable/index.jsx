@@ -2,8 +2,20 @@ import styles from './VisualizerTable.module.css';
 import gtx_visu from "../../../public/images/logo-list.png";
 import trashImg from "../../../public/images/trash-fill.svg";
 import pencilImg from "../../../public/images/pencil-square.svg";
+import EditBox from '../EditBox';
+import { useState } from 'react';
 
 export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
+
+    const [selectedCat, setSelectedCat] = useState(null); // Estado para armazenar o gato selecionado
+
+    const showEditForm = (cat, id) => {
+        setSelectedCat(cat); // Define o gato a ser editado
+    };
+
+    const closeEditForm = () => {
+        setSelectedCat(null); // Fecha o formulário de edição
+    };
 
     return (
         <section className={styles.content} id='content'>
@@ -38,13 +50,16 @@ export default function VisualizerTable ( { data, requestStatus, deleteCat } ) {
                                     <td>{cat.age}</td>
                                     <td>{cat.gender}</td>
                                     <button onClick={() => deleteCat(cat.id)}><img src={trashImg} /></button>
-                                    <button><img src={pencilImg} /></button>
+                                    <button onClick={() => showEditForm(cat)}><img src={pencilImg} /></button>
                                 </tr>
                             ))
                         }
                     </tbody>
 
                 </table>
+
+                {/* Renderiza o EditBox se um gato estiver selecionado */}
+                {selectedCat && <EditBox cat={selectedCat} closeComponent={closeEditForm} updates={updateMethod} />}
 
             </div>
 
