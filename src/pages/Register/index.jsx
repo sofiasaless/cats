@@ -4,7 +4,7 @@ import gtx_reg from '../../../public/images/logo-register.png';
 import Header from '../../components/Header';
 import Container from '../../components/Container';
 import MessageBox from '../../components/MessageBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Register () {
@@ -47,6 +47,17 @@ export default function Register () {
         setName('');
         setAge('');
     }
+
+    const [requestStatus, setRequestStatus] = useState(false)
+    useEffect(() => {
+        axios.get('https://cats-api-phsr.onrender.com/cats')
+        .then(resp => {
+            setRequestStatus(true);
+        })
+        .catch(error => {
+            setRequestStatus(false);
+        })
+    })
     
     return (
         <>
@@ -61,6 +72,14 @@ export default function Register () {
                             <img src={gtx_reg} alt="" />
                         </div>
                         <h2>Preencha os campos</h2>
+
+                        <div className={styles.warn} style={{display: requestStatus?'none':'block'}}>
+                            <p>
+                                Por favor, aguarde até a requisição carregar para cadastrar Gatuxos!
+                            </p>
+                            <span className={styles.loader}></span>
+                        </div>
+
                         <label htmlFor="name">Nome do gatinho:</label>
                         <input type="text" maxLength={20} name='name' value={name} onChange={(e) => setName(e.target.value)} />
 
