@@ -73,12 +73,30 @@ export default function Register () {
                         </div>
                         <h2>Preencha os campos</h2>
 
-                        <div className={styles.warn} style={{display: requestStatus?'none':'block'}}>
+                        {
+                            requestStatus
+                            ?
+                            <div className={styles.warn}>
+                                <p className={styles.pwarn_positive}>
+                                    Pronto para cadastrar Gatuxos!
+                                </p>
+                            </div>
+                            :
+                            <div className={styles.warn}>
+                                <p className={styles.pwarn_negative}>
+                                    Por favor, aguarde até a requisição carregar para cadastrar Gatuxos!
+                                </p>
+                                <span className={styles.loader}></span>
+                            </div>
+                        }
+
+
+                        {/* <div className={styles.warn} style={{display: requestStatus?'none':'block'}}>
                             <p>
                                 Por favor, aguarde até a requisição carregar para cadastrar Gatuxos!
                             </p>
                             <span className={styles.loader}></span>
-                        </div>
+                        </div> */}
 
                         <label htmlFor="name">Nome do gatinho:</label>
                         <input type="text" maxLength={20} name='name' value={name} onChange={(e) => setName(e.target.value)} />
