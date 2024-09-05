@@ -24,7 +24,7 @@ export default function EditBox ( { cat, closeComponent } ) {
     // moving the update method 
     const updateCat = () => {
 
-        axios.put('https://cats-api-phsr.onrender.com/cats/update', upCat)
+        axios.put('https://newcats.onrender.com/cats/update', upCat)
         .then((resp) => {
             setShowBox(true);
             setBoxMessage("Gatuxo atualizado com sucesso!")
