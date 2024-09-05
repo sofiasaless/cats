@@ -29,7 +29,7 @@ export default function Register () {
             gender: gender
         };
 
-        axios.post('https://cats-api-phsr.onrender.com/cats/save', cat)
+        axios.post('https://newcats.onrender.com/cats/save', cat)
         .then(response => {
             setShowBox(true)
             setBoxMessage("Gatuxo cadastrado com sucesso!")
@@ -50,7 +50,7 @@ export default function Register () {
 
     const [requestStatus, setRequestStatus] = useState(false)
     useEffect(() => {
-        axios.get('https://cats-api-phsr.onrender.com/cats')
+        axios.get('https://newcats.onrender.com/cats')
         .then(resp => {
             setRequestStatus(true);
         })

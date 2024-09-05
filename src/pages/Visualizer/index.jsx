@@ -13,7 +13,7 @@ export default function Visualizer () {
 
     // listing cats
     useEffect(() => {
-        axios.get('https://cats-api-phsr.onrender.com/cats')
+        axios.get('https://newcats.onrender.com/cats')
         .then((cats) => {
             setCatsData(cats.data)
             setRequestStatus(true)
@@ -27,7 +27,7 @@ export default function Visualizer () {
         // inserts confirmation messageBox before the axios 
         // .....
 
-        axios.delete(`https://cats-api-phsr.onrender.com/cats/${e}`)
+        axios.delete(`https://newcats.onrender.com/cats/${e}`)
         .then((catDeleted) => {
             console.log(catDeleted.status);
         })
