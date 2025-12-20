@@ -19,7 +19,7 @@ export default function Visualizer () {
             setRequestStatus(true)
         })
         .catch(error => console.log('error ' + error))
-    })
+    }, [])
     
     // deleting cats
     const deletingCat = (e) => {
